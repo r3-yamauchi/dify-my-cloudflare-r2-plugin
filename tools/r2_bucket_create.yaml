@@ -1,0 +1,79 @@
+identity:
+  name: r2_bucket_create
+  author: r3-yamauchi
+  label:
+    en_US: Cloudflare R2 Bucket Create
+    zh_Hans: Cloudflare R2 存储桶创建
+    pt_BR: Cloudflare R2 Bucket Create
+    ja_JP: Cloudflare R2 バケット作成
+description:
+  human:
+    en_US: Create a new bucket in your Cloudflare R2 account.
+    zh_Hans: 在 Cloudflare R2 账户中创建新存储桶。
+    pt_BR: Crie um novo bucket em sua conta Cloudflare R2.
+    ja_JP: Cloudflare R2 アカウントに新しいバケットを作成します。
+  llm: Create a new bucket in your Cloudflare R2 account with the specified name.
+parameters:
+  - name: account_id
+    type: string
+    required: false
+    label:
+      en_US: Cloudflare Account ID
+      ja_JP: Cloudflare アカウント ID
+    human_description:
+      en_US: Override the provider Account ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Account ID。
+    form: form
+
+  - name: access_key_id
+    type: string
+    required: false
+    label:
+      en_US: R2 Access Key ID
+      ja_JP: R2 アクセスキー ID
+    human_description:
+      en_US: Override the provider Access Key ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Access Key ID。
+    form: form
+
+  - name: secret_access_key
+    type: string
+    required: false
+    label:
+      en_US: R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキー
+    human_description:
+      en_US: Override the provider Secret Access Key for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きするシークレットキー。
+    form: form
+
+  - name: region_name
+    type: string
+    required: false
+    label:
+      en_US: R2 Region Name
+      ja_JP: R2 リージョン名
+    human_description:
+      en_US: Override the default R2 Region Name for this tool.
+      ja_JP: このツール固有の R2 リージョン名を指定します。
+    form: form
+
+  - name: bucket_name
+    type: string
+    required: true
+    label:
+      en_US: Bucket name
+      ja_JP: バケット名
+    human_description:
+      en_US: Name for the new bucket (3-63 characters, lowercase letters, numbers, hyphens, and dots only).
+      ja_JP: 新しいバケットの名前（3-63文字、小文字、数字、ハイフン、ドットのみ）。
+    llm_description: Name for the new bucket. Must be 3-63 characters, lowercase letters, numbers, hyphens, and dots only.
+    form: llm
+
+extra:
+  python:
+    source: tools/r2_bucket_create.py
+
+
+
+

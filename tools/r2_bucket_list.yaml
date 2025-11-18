@@ -1,0 +1,67 @@
+identity:
+  name: r2_bucket_list
+  author: r3-yamauchi
+  label:
+    en_US: Cloudflare R2 Bucket List
+    zh_Hans: Cloudflare R2 存储桶列表
+    pt_BR: Cloudflare R2 Bucket List
+    ja_JP: Cloudflare R2 バケット一覧
+description:
+  human:
+    en_US: List all buckets in your Cloudflare R2 account.
+    zh_Hans: 列出 Cloudflare R2 账户中的所有存储桶。
+    pt_BR: Liste todos os buckets em sua conta Cloudflare R2.
+    ja_JP: Cloudflare R2 アカウント内のすべてのバケットを一覧表示します。
+  llm: List all buckets available in the Cloudflare R2 account.
+parameters:
+  - name: account_id
+    type: string
+    required: false
+    label:
+      en_US: Cloudflare Account ID
+      ja_JP: Cloudflare アカウント ID
+    human_description:
+      en_US: Override the provider Account ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Account ID。
+    form: form
+
+  - name: access_key_id
+    type: string
+    required: false
+    label:
+      en_US: R2 Access Key ID
+      ja_JP: R2 アクセスキー ID
+    human_description:
+      en_US: Override the provider Access Key ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Access Key ID。
+    form: form
+
+  - name: secret_access_key
+    type: string
+    required: false
+    label:
+      en_US: R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキー
+    human_description:
+      en_US: Override the provider Secret Access Key for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きするシークレットキー。
+    form: form
+
+  - name: region_name
+    type: string
+    required: false
+    label:
+      en_US: R2 Region Name
+      ja_JP: R2 リージョン名
+    human_description:
+      en_US: Override the default R2 Region Name for this tool.
+      ja_JP: このツール固有の R2 リージョン名を指定します。
+    form: form
+
+extra:
+  python:
+    source: tools/r2_bucket_list.py
+
+
+
+

@@ -1,0 +1,78 @@
+identity:
+  name: r2_file_download
+  author: r3-yamauchi
+  label:
+    en_US: Cloudflare R2 File Download
+    zh_Hans: Cloudflare R2 文件下载
+    pt_BR: Cloudflare R2 File Download
+    ja_JP: Cloudflare R2 ファイルダウンロード
+description:
+  human:
+    en_US: Download files from Cloudflare R2.
+    zh_Hans: 从 Cloudflare R2 下载文件。
+    pt_BR: Faça download de arquivos do Cloudflare R2.
+    ja_JP: Cloudflare R2 からファイルをダウンロードします。
+  llm: Download files from Cloudflare R2 so workflows can access the binary and metadata directly.
+parameters:
+  - name: account_id
+    type: string
+    required: false
+    label:
+      en_US: Cloudflare Account ID
+      ja_JP: Cloudflare アカウント ID
+    human_description:
+      en_US: Override the provider Account ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Account ID。
+    form: form
+
+  - name: access_key_id
+    type: string
+    required: false
+    label:
+      en_US: R2 Access Key ID
+      ja_JP: R2 アクセスキー ID
+    human_description:
+      en_US: Override the provider Access Key ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Access Key ID。
+    form: form
+
+  - name: secret_access_key
+    type: string
+    required: false
+    label:
+      en_US: R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキー
+    human_description:
+      en_US: Override the provider Secret Access Key for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きするシークレットキー。
+    form: form
+
+  - name: region_name
+    type: string
+    required: false
+    label:
+      en_US: R2 Region Name
+      ja_JP: R2 リージョン名
+    human_description:
+      en_US: Override the default R2 Region Name for this tool.
+      ja_JP: このツール固有の R2 リージョン名を指定します。
+    form: form
+
+  - name: r2_uri
+    type: string
+    required: true
+    label:
+      en_US: R2 URI
+      ja_JP: R2 URI
+    human_description:
+      en_US: "Target object in r2://bucket/key format (s3:// format is also accepted for compatibility)."
+      ja_JP: "`r2://bucket/key` 形式でダウンロード対象を指定します（互換性のため `s3://` 形式も受け付けます）。"
+    llm_description: R2 URI of the object to read (r2:// or s3:// format).
+    form: llm
+
+extra:
+  python:
+    source: tools/r2_file_download.py
+
+
+

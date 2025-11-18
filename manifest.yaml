@@ -1,0 +1,48 @@
+version: 0.0.1
+type: plugin
+author: r3-yamauchi
+name: cloudflare_r2_tools
+label:
+  en_US: Cloudflare R2 Tools
+  ja_JP: Cloudflare R2 ツール
+  zh_Hans: Cloudflare R2 工具
+  pt_BR: Cloudflare R2 Tools
+description:
+  en_US: The tools based on the Cloudflare R2 Storage service
+  ja_JP: "Cloudflare R2 Storage サービスを使用するツール集"
+  zh_Hans: The tools based on the Cloudflare R2 Storage service
+  pt_BR: The tools based on the Cloudflare R2 Storage service
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/cloudflare_r2_tools.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+created_at: 2025-01-27T00:00:00.000000+09:00
+privacy: PRIVACY.md
+verified: false
+
+
+
+
+
+

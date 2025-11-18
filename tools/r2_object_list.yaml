@@ -1,0 +1,122 @@
+identity:
+  name: r2_object_list
+  author: r3-yamauchi
+  label:
+    en_US: Cloudflare R2 Object List
+    zh_Hans: Cloudflare R2 对象列表
+    pt_BR: Cloudflare R2 Object List
+    ja_JP: Cloudflare R2 オブジェクト一覧
+description:
+  human:
+    en_US: List objects in a Cloudflare R2 bucket.
+    zh_Hans: 列出 Cloudflare R2 存储桶中的对象。
+    pt_BR: Liste objetos em um bucket Cloudflare R2.
+    ja_JP: Cloudflare R2 バケット内のオブジェクトを一覧表示します。
+  llm: List objects in a Cloudflare R2 bucket with optional prefix filtering and folder grouping.
+parameters:
+  - name: account_id
+    type: string
+    required: false
+    label:
+      en_US: Cloudflare Account ID
+      ja_JP: Cloudflare アカウント ID
+    human_description:
+      en_US: Override the provider Account ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Account ID。
+    form: form
+
+  - name: access_key_id
+    type: string
+    required: false
+    label:
+      en_US: R2 Access Key ID
+      ja_JP: R2 アクセスキー ID
+    human_description:
+      en_US: Override the provider Access Key ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Access Key ID。
+    form: form
+
+  - name: secret_access_key
+    type: string
+    required: false
+    label:
+      en_US: R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキー
+    human_description:
+      en_US: Override the provider Secret Access Key for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きするシークレットキー。
+    form: form
+
+  - name: region_name
+    type: string
+    required: false
+    label:
+      en_US: R2 Region Name
+      ja_JP: R2 リージョン名
+    human_description:
+      en_US: Override the default R2 Region Name for this tool.
+      ja_JP: このツール固有の R2 リージョン名を指定します。
+    form: form
+
+  - name: bucket_name
+    type: string
+    required: true
+    label:
+      en_US: Bucket name
+      ja_JP: バケット名
+    human_description:
+      en_US: The R2 bucket name to list objects from.
+      ja_JP: オブジェクトを一覧表示するR2バケット名。
+    form: form
+
+  - name: prefix
+    type: string
+    required: false
+    label:
+      en_US: Prefix
+      ja_JP: プレフィックス
+    human_description:
+      en_US: "Optional prefix to filter objects (e.g., \"folder/\")."
+      ja_JP: "オブジェクトをフィルタリングする任意のプレフィックス（例: \"folder/\"）。"
+    form: form
+
+  - name: max_keys
+    type: number
+    required: false
+    label:
+      en_US: Maximum number of objects
+      ja_JP: 最大オブジェクト数
+    human_description:
+      en_US: "Maximum number of objects to return (default: 100)."
+      ja_JP: "返却するオブジェクトの最大数（デフォルト: 100）。"
+    default: 100
+    form: form
+
+  - name: use_delimiter
+    type: boolean
+    required: false
+    label:
+      en_US: Use delimiter
+      ja_JP: デリミタを使用
+    human_description:
+      en_US: "Group objects by delimiter (folder structure). Default: true."
+      ja_JP: "デリミタでオブジェクトをグループ化（フォルダ構造）。デフォルト: true。"
+    default: true
+    form: form
+
+  - name: delimiter
+    type: string
+    required: false
+    label:
+      en_US: Delimiter
+      ja_JP: デリミタ
+    human_description:
+      en_US: "Character used to group keys (default: \"/\"). Only used when use_delimiter is true."
+      ja_JP: "キーをグループ化するために使用する文字（デフォルト: \"/\"）。use_delimiterがtrueの場合のみ使用されます。"
+    default: "/"
+    form: form
+
+extra:
+  python:
+    source: tools/r2_object_list.py
+

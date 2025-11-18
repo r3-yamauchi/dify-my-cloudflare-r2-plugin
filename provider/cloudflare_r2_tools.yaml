@@ -1,0 +1,81 @@
+identity:
+  author: r3-yamauchi
+  name: cloudflare_r2_tools
+  label:
+    en_US: Cloudflare R2 Tools
+    ja_JP: Cloudflare R2 ツール
+    zh_Hans: Cloudflare R2 工具
+    pt_BR: Cloudflare R2 Tools
+  description:
+    en_US: the tools based on the Cloudflare R2 Storage service
+    ja_JP: "Cloudflare R2 Storage サービスを使用するツール集"
+    zh_Hans: the tools based on the Cloudflare R2 Storage service
+    pt_BR: the tools based on the Cloudflare R2 Storage service
+  icon: icon.svg
+  tags:
+    - productivity
+    - utilities
+credentials_schema:
+  - name: account_id
+    label:
+      en_US: Cloudflare Account ID
+      ja_JP: Cloudflare アカウント ID
+    type: text-input
+    required: false
+    placeholder:
+      en_US: Enter your Cloudflare Account ID (32-character hex string)
+      ja_JP: Cloudflare アカウント ID を入力（32文字の16進数文字列）
+    description:
+      en_US: Your Cloudflare Account ID used for R2 endpoint URL. Can be overridden in each tool.
+      ja_JP: R2 エンドポイント URL に使用する Cloudflare アカウント ID。各ツールで上書き可能です。
+  - name: access_key_id
+    label:
+      en_US: R2 Access Key ID
+      ja_JP: R2 アクセスキー ID
+    type: secret-input
+    required: false
+    placeholder:
+      en_US: Enter your R2 Access Key ID
+      ja_JP: R2 アクセスキー ID を入力
+    description:
+      en_US: Access Key ID for Cloudflare R2 Storage. Can be overridden in each tool.
+      ja_JP: Cloudflare R2 Storage のアクセスキー ID。各ツールで上書き可能です。
+  - name: secret_access_key
+    label:
+      en_US: R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキー
+    type: secret-input
+    required: false
+    placeholder:
+      en_US: Enter your R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキーを入力
+    description:
+      en_US: Secret Access Key paired with the Access Key ID. Can be overridden in each tool.
+      ja_JP: Access Key ID とペアで使用するシークレットキー。各ツールで上書き可能です。
+  - name: region_name
+    label:
+      en_US: R2 Region Name
+      ja_JP: R2 リージョン名
+    type: text-input
+    required: false
+    placeholder:
+      en_US: auto (or wnam, enam, weur, eeur, apac). Defaults to 'auto' if not specified.
+      ja_JP: auto（または wnam, enam, weur, eeur, apac）。未指定の場合は 'auto' が使用されます。
+    description:
+      en_US: Region name for Cloudflare R2 Storage (e.g., auto, wnam, enam, weur, eeur, apac). Defaults to 'auto' if not specified. Can be overridden in each tool.
+      ja_JP: "Cloudflare R2 Storage のリージョン名（例: auto, wnam, enam, weur, eeur, apac）。未指定の場合は 'auto' が使用されます。各ツールで上書き可能です。"
+tools:
+  - tools/r2_file_uploader.yaml
+  - tools/r2_file_download.yaml
+  - tools/r2_operator.yaml
+  - tools/r2_bucket_list.yaml
+  - tools/r2_bucket_create.yaml
+  - tools/r2_object_list.yaml
+  - tools/r2_object_delete.yaml
+  - tools/r2_object_metadata.yaml
+extra:
+  python:
+    source: provider/cloudflare_r2_tools.py
+
+
+

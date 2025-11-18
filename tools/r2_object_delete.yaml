@@ -1,0 +1,76 @@
+identity:
+  name: r2_object_delete
+  author: r3-yamauchi
+  label:
+    en_US: Cloudflare R2 Object Delete
+    zh_Hans: Cloudflare R2 对象删除
+    pt_BR: Cloudflare R2 Object Delete
+    ja_JP: Cloudflare R2 オブジェクト削除
+description:
+  human:
+    en_US: Delete an object from a Cloudflare R2 bucket.
+    zh_Hans: 从 Cloudflare R2 存储桶中删除对象。
+    pt_BR: Exclua um objeto de um bucket Cloudflare R2.
+    ja_JP: Cloudflare R2 バケットからオブジェクトを削除します。
+  llm: Delete an object from a Cloudflare R2 bucket by URI.
+parameters:
+  - name: account_id
+    type: string
+    required: false
+    label:
+      en_US: Cloudflare Account ID
+      ja_JP: Cloudflare アカウント ID
+    human_description:
+      en_US: Override the provider Account ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Account ID。
+    form: form
+
+  - name: access_key_id
+    type: string
+    required: false
+    label:
+      en_US: R2 Access Key ID
+      ja_JP: R2 アクセスキー ID
+    human_description:
+      en_US: Override the provider Access Key ID for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きする Access Key ID。
+    form: form
+
+  - name: secret_access_key
+    type: string
+    required: false
+    label:
+      en_US: R2 Secret Access Key
+      ja_JP: R2 シークレットアクセスキー
+    human_description:
+      en_US: Override the provider Secret Access Key for this tool if needed.
+      ja_JP: 必要に応じてプロバイダー設定を上書きするシークレットキー。
+    form: form
+
+  - name: region_name
+    type: string
+    required: false
+    label:
+      en_US: R2 Region Name
+      ja_JP: R2 リージョン名
+    human_description:
+      en_US: Override the default R2 Region Name for this tool.
+      ja_JP: このツール固有の R2 リージョン名を指定します。
+    form: form
+
+  - name: r2_uri
+    type: string
+    required: true
+    label:
+      en_US: R2 URI
+      ja_JP: R2 URI
+    human_description:
+      en_US: "Target object to delete in r2://bucket/key format (s3:// format is also accepted for compatibility)."
+      ja_JP: "削除対象のオブジェクトを `r2://bucket/key` 形式で指定します（互換性のため `s3://` 形式も受け付けます）。"
+    llm_description: R2 URI of the object to delete (r2:// or s3:// format).
+    form: llm
+
+extra:
+  python:
+    source: tools/r2_object_delete.py
+
